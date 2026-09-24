@@ -4,6 +4,13 @@
 
 Repository: [nutdnuy/quantara-strategy-library](https://github.com/nutdnuy/quantara-strategy-library) โดยใช้ GitHub Actions ตรวจข้อมูลและเผยแพร่เว็บจาก branch `main` ทุกครั้งที่ commit การแก้ไข
 
+## เว็บที่เผยแพร่แล้ว
+
+- Wix: https://www.quant-corner.com/strategies
+- GitHub Pages: https://nutdnuy.github.io/quantara-strategy-library/
+
+Wix ฝัง GitHub Pages โดยตรง เมื่อ commit ลง `main` และ Actions สำเร็จ เนื้อหาใหม่จะปรากฏทั้งสองแห่งหลังรีเฟรช ไม่ต้องเผยแพร่ Wix ใหม่สำหรับการเพิ่มหรือแก้การ์ด
+
 ## ดูเว็บในเครื่อง
 
 ต้องมี Node.js 20 ขึ้นไป และ Python 3 สำหรับเซิร์ฟเวอร์ตัวอย่าง
@@ -94,3 +101,7 @@ dist/                    # เว็บที่พร้อมนำไปโ�
 ทั้งสองแบบอ่าน Markdown ชุดเดียวกันและเปิดรายละเอียดเดียวกัน แบบ B ใช้ `gameImage` ถ้ามี ชื่อกลยุทธ์ หมวด และบรีฟยังเป็นข้อความจริงที่แก้ได้ ไม่ฝังอยู่ในรูป กดได้ทุกส่วนของการ์ด หรือใช้ Tab แล้ว Enter/Space เพื่อเปิดรายละเอียด ชื่อและเรื่องราวไอเทมอยู่ในหน้ารายละเอียด
 
 นำหัวข้อรายการ ช่องค้นหา ตัวกรอง ตัวนับ และแถบส่วนท้ายออกจากทั้งสองแบบตามคอมเมนต์ ไม่มีฟังก์ชันค้นหาหรือกรองในเวอร์ชันปัจจุบัน
+
+## การเชื่อม Wix
+
+หน้า `strategies` ใช้ layout ไม่มี header/footer และ HTML component `comp-mufo5jbo` ชี้ไปยัง GitHub Pages แบบเกม ความกว้างยืดเต็มหน้าจอ ส่วน Custom Code ชื่อ **Strategy Library — responsive viewport** ใช้ไฟล์ `wix/responsive-viewport.html` เพื่อให้กรอบสูงเท่าหน้าจอทั้งเดสก์ท็อปและมือถือ CSS จำกัดด้วย page ID `ljtpi` และ component ID ดังกล่าว หากสร้างหน้า Wix ใหม่ต้องปรับ IDs ให้ตรง การแก้ไฟล์ CSS นี้ใน GitHub ไม่ส่งไป Wix อัตโนมัติ
