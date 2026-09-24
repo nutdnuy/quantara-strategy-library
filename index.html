@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf9f2">
+  <meta name="description" content="Explore trading strategies through the artifacts of Quantara. A QuantCorner strategy library with research sources and Thai learning notes.">
+  <title>Strategy Library · QuantCorner</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand/quantcorner-mark-light.svg">
+  <link rel="preload" href="assets/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">Skip to strategies</a>
+  <header class="site-header wrap">
+    <a class="brand" href="https://www.quant-corner.com/" aria-label="QuantCorner home"><img src="assets/brand/quantcorner-mark-light.svg" width="42" height="42" alt="QuantCorner"></a>
+    <nav aria-label="Main navigation">
+      <a href="https://www.quant-corner.com/">Home</a>
+      <a href="https://www.quant-corner.com/#about-details">Library</a>
+      <a href="https://www.quant-corner.com/characters">Career Paths</a>
+      <a href="#collection" class="active" aria-current="page">Strategies</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true"></div>
+      <details class="photo-info"><summary aria-label="Library photograph credit">i</summary><p>Admont Abbey photograph by <a href="https://www.royan.com.ar/" target="_blank" rel="noopener noreferrer">Jorge Royan</a>. <a href="https://commons.wikimedia.org/wiki/File:Austria_-_Admont_Abbey_Library_-_1326.jpg" target="_blank" rel="noopener noreferrer">Source</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>. Cropped and faded for display.</p></details>
+      <div class="hero-copy wrap">
+        <p class="eyebrow">THE QUANTCORNER STRATEGY LIBRARY</p>
+        <h1 id="hero-title">A library of trading ideas</h1>
+        <p class="hero-description">Explore the strategies. Discover the artifacts of Quantara.</p>
+        <a class="primary-button" href="#collection">Explore strategies <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="collection wrap" id="collection" aria-labelledby="collection-title" tabindex="-1">
+      <h2 id="collection-title" class="sr-only">Trading strategies</h2>
+      <div class="card-grid" id="card-grid" aria-busy="true"></div>
+      <div class="error-state" id="error-state" hidden role="alert"><h3>The collection could not load.</h3><p>Please reload the page to try again.</p><button id="retry" class="primary-button" type="button">Try again</button></div>
+      <noscript><p>Enable JavaScript to browse the strategy collection and its research notes.</p></noscript>
+    </section>
+    <section class="field-note wrap" aria-labelledby="field-note-title">
+      <div><p class="eyebrow">FROM THE KINGDOM OF QUANTARA</p><h2 id="field-note-title">An idea you can hold.</h2></div>
+      <div><p>Each artifact gives a trading concept a physical form: a compass for direction, a balance for equilibrium, paired instruments for relative value.</p><p class="small-note">Original item concepts for Quantara. The research notes explain the strategies; the artifacts tell their stories.</p></div>
+    </section>
+  </main>
+  <dialog id="strategy-dialog" aria-labelledby="detail-title">
+    <div class="dialog-toolbar"><span>STRATEGY FIELD NOTES</span><button class="close-button" id="close-dialog" type="button" aria-label="Close strategy details">Close <span aria-hidden="true">×</span></button></div>
+    <div id="dialog-content"></div>
+  </dialog>
+</body>
+</html>

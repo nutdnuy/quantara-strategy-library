@@ -1,0 +1,15 @@
+dist/
+data/strategies.json
+.DS_Store
+node_modules/
+
+# Local design studies and generation records are not part of the public site.
+authoring/
+DESIGN.md
+assets/items/provenance.json
+assets/items/README.md
+assets/items/wayfinder-compass.png
+assets/items/equilibrium-balance.png
+assets/items/twin-calipers.png
+assets/items/index-engine.png
+assets/items/windrunner-boots.png

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 100" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#e7e1ce"/><stop offset=".4" stop-color="#faf7ea"/><stop offset="1" stop-color="#e8e2d0"/></linearGradient>
+    <linearGradient id="bevel"><stop stop-color="#93866b"/><stop offset=".35" stop-color="#ded4b5"/><stop offset=".7" stop-color="#a89a79"/><stop offset="1" stop-color="#d8cfb3"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".075" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".035"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  </defs>
+  <path d="M17 1H313L329 17V82L313 99H17L1 82V17Z" fill="#49584d" stroke="#6b6554"/>
+  <path d="M18 4H312L326 18V81L312 96H18L4 81V18Z" fill="url(#paper)" stroke="url(#bevel)" stroke-width="3"/>
+  <path d="M20 8H310L322 20V79L310 92H20L8 79V20Z" fill="url(#paper)" filter="url(#grain)" stroke="#fcf9e8" stroke-width=".7"/>
+</svg>

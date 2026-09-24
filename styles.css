@@ -1,0 +1,136 @@
+@font-face{font-family:Roboto;src:url('assets/fonts/roboto-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Roboto;src:url('assets/fonts/roboto-latin-500-normal.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Roboto;src:url('assets/fonts/roboto-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:Thai;src:url('assets/fonts/noto-sans-thai-thai-400-normal.woff2') format('woff2');font-weight:100 900;font-display:swap}
+:root{color-scheme:light;--paper:#fbf9f2;--ink:#293a30;--muted:#576756;--line:#dce2d5;--primary:#6200ee;--primary-pressed:#3700b3;--sage:#edf0e5}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Roboto,Thai,sans-serif}body:has(dialog[open]){overflow:hidden}button,input{font:inherit;color:inherit}button,a,input{touch-action:manipulation}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--primary);outline-offset:5px}button:disabled{cursor:default}h1,h2,h3,p{margin:0}img{max-width:100%;display:block}.wrap{width:min(1152px,calc(100% - 96px));margin-inline:auto}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}.skip-link{position:fixed;top:-100px;left:24px;background:white;padding:12px;z-index:50}.skip-link:focus{top:16px}.site-header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:100px;position:relative;z-index:2}.brand{width:56px;height:56px;display:grid;place-items:center;border-radius:50%;background:#fffdfa;box-shadow:0 1px 12px #293a3008}.brand img{width:38px;height:38px}.site-header nav{display:flex;gap:8px;align-items:center}.site-header nav a{display:flex;align-items:center;justify-content:center;text-decoration:none;min-height:48px;padding:8px 22px;font-size:14px;border-radius:30px}.site-header nav a:hover{background:var(--sage)}.site-header nav .active{color:white;background:var(--primary);box-shadow:0 2px 4px #3700b315}.site-header nav .active:hover{background:var(--primary-pressed)}
+.hero{position:relative;isolation:isolate;min-height:368px;display:grid;align-items:end;text-align:center;padding:98px 0 45px}.hero-art{position:absolute;inset:-100px 0 0;z-index:-1;background-image:linear-gradient(180deg,rgba(251,249,242,.15),rgba(251,249,242,.3) 36%,var(--paper) 91%),url('assets/library-hero.jpg');background-size:cover;background-position:center 42%;opacity:.7}.hero-copy{position:relative}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:500;line-height:1.5;color:var(--muted)}.hero .eyebrow{margin-bottom:12px}.hero h1{font-size:clamp(32px,4.5vw,52px);font-weight:500;letter-spacing:-1.7px;line-height:1.14}.hero-description{font-size:16px;color:var(--muted);margin:18px 0 23px}.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:26px;min-height:48px;padding:10px 24px;border:1px solid transparent;border-radius:32px;background:var(--primary);color:white;text-decoration:none;font-size:14px;box-shadow:0 2px 4px #3700b326;transition:background .2s,box-shadow .2s}.primary-button:hover{background:var(--primary-pressed);box-shadow:0 3px 7px #3700b32a}.primary-button:active{box-shadow:none}.primary-button span{font-size:21px;line-height:1}.collection{padding:29px 0 64px;outline-offset:8px}.collection-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}.collection-heading h2{font-size:28px;font-weight:400;letter-spacing:-.7px;line-height:1.3;margin-top:8px}.search-label{display:flex;align-items:center;gap:12px;max-width:300px;background:#ffffff80;border:1px solid var(--line);border-radius:28px;padding:0 18px}.search-label>span[aria-hidden]{font-size:28px;line-height:1}.search-label input{min-width:0;width:100%;border:0;background:none;height:48px;font-size:14px;outline-offset:1px}.search-label:focus-within{border-color:var(--primary)}.search-label input::placeholder{color:var(--muted)}.collection-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:25px}.filters{display:flex;flex-wrap:wrap;gap:5px}.filter{min-height:48px;padding:8px 15px;border:1px solid transparent;border-radius:25px;background:none;font-size:13px;white-space:nowrap}.filter:hover{background:var(--sage)}.filter[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}.results-count{flex-shrink:0;font-size:12px;color:var(--muted)}
+/* Compact illustration cards follow the supplied Library Discovery reference. */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.strategy-card{background:#fdfbf6;border:1px solid #e2e5db;border-radius:10px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s,transform .2s}
+.strategy-card:hover,.strategy-card:focus-within{border-color:#bcc8b8;box-shadow:0 6px 20px #293a3008;transform:translateY(-2px)}
+.card-art{aspect-ratio:1.24;padding:10px 14px 0;position:relative;display:flex;align-items:center;justify-content:center}
+.card-art img{position:absolute;inset:8px 12px 0;width:calc(100% - 24px);height:calc(100% - 8px);object-fit:contain;mix-blend-mode:multiply;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 94%,transparent);mask-composite:intersect}
+.card-copy{padding:0 26px 14px;flex:1;display:flex;flex-direction:column;align-items:flex-start}
+.category{font-size:11px;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.strategy-card h3{font-size:24px;letter-spacing:-.6px;line-height:1.25;font-weight:500;margin:0 0 5px}
+.strategy-card .category{font-size:14px;line-height:1.5;font-weight:400;letter-spacing:0;text-transform:none;color:#64796c}
+.card-bottom{width:100%;margin-top:13px}
+.view-card{min-height:48px;border:0;background:none;padding:0;display:flex;align-items:center;gap:18px;font-size:13px;color:#64796c}
+.view-card span{font-size:18px;font-weight:400;color:#8c9e91}
+.view-card:after{content:'';position:absolute;inset:0}
+.view-card:hover{color:var(--primary)}
+.empty-state,.error-state{padding:64px 24px;text-align:center;border:1px solid var(--line);border-radius:12px}.empty-state p,.error-state p{margin:8px 0 24px;color:var(--muted)}[hidden]{display:none!important}.field-note{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0;display:grid;grid-template-columns:1fr 1.3fr;gap:70px}.field-note h2{font-size:28px;letter-spacing:-.8px;font-weight:400;margin-top:12px}.field-note p:not(.eyebrow){font-size:15px;color:var(--muted)}.field-note .small-note{font-size:12px!important;margin-top:16px}.site-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:110px;font-size:11px;color:var(--muted)}.site-footer span{margin:0 5px}.site-footer a{min-height:48px;display:inline-flex;align-items:center;text-underline-offset:4px}
+dialog{width:min(940px,calc(100% - 48px));max-height:90dvh;padding:0;border:1px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);box-shadow:0 24px 120px #12281844;overscroll-behavior:contain}dialog::backdrop{background:#15281ed0;backdrop-filter:blur(5px)}.dialog-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:1}.dialog-toolbar>span{font-size:11px;letter-spacing:.12em;color:var(--muted)}.close-button{border:0;background:transparent;min-height:48px;display:flex;align-items:center;gap:12px;font-size:13px}.close-button span{font-size:28px}.detail-layout{display:grid;grid-template-columns:36% 1fr;gap:36px;padding:32px}.detail-art{position:sticky;top:100px;align-self:start}.detail-art img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;mix-blend-mode:multiply}.detail-art figcaption{margin:12px 0 8px;font-size:16px;font-weight:500}.detail-art figure{margin:0}.detail-art p{font-size:13px;color:var(--muted)}.detail-lore{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.detail-lore .concept-label{font-size:10px;letter-spacing:.12em;margin-bottom:8px}.detail-main h2{font-size:34px;font-weight:500;letter-spacing:-1px;line-height:1.15;margin:8px 0 16px}.detail-summary{font-size:16px;color:var(--muted)}.markdown{margin-top:26px}.markdown h3{font-size:17px;font-weight:500;margin:26px 0 10px}.markdown p,.markdown li{font-size:14px;line-height:1.85;color:var(--muted)}.markdown ul{padding-left:22px}.sources{border-top:1px solid var(--line);margin-top:28px;padding-top:24px}.sources h3{font-size:15px;margin-bottom:10px}.sources a{display:block;font-size:13px;min-height:48px;padding:12px 0;color:var(--primary);overflow-wrap:anywhere;text-underline-offset:4px}.source-note{font-size:12px;color:var(--muted);margin:12px 0}.detail-disclaimer{font-size:11px;color:var(--muted);margin-top:18px}
+@media(min-width:1450px){.hero{min-height:405px}}
+@media(max-width:1000px){.wrap{width:calc(100% - 64px)}.card-grid{gap:20px}.card-art{padding:8px 10px 0}.card-copy{padding:0 20px 12px}.strategy-card h3{font-size:21px}.collection-toolbar{align-items:flex-start}.results-count{padding-top:14px}.filter{padding-inline:10px}.field-note{gap:40px}.site-footer{flex-wrap:wrap;gap:8px 24px;padding:24px 0}}
+@media(max-width:760px){.wrap{width:calc(100% - 40px)}.site-header{min-height:90px;gap:12px}.brand{width:48px;height:48px;flex-shrink:0}.site-header nav{gap:0}.site-header nav a{padding:8px 12px;font-size:12px}.site-header nav a:nth-child(2){display:none}.hero{padding:70px 0 36px;min-height:310px}.hero-art{inset:-90px 0 0}.hero h1{font-size:36px;letter-spacing:-1.2px}.hero-description{font-size:14px;max-width:280px;margin-inline:auto}.hero .eyebrow{font-size:9px}.collection{padding-top:28px}.collection-heading{align-items:flex-start;gap:18px;flex-direction:column}.collection-heading h2{font-size:26px}.search-label{max-width:100%;width:100%}.collection-toolbar{display:block}.filters{gap:3px}.filter{font-size:12px;padding-inline:12px}.results-count{padding-top:14px}.card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card-art{padding:6px 10px 0}.card-copy{padding:0 18px 10px}.strategy-card h3{font-size:21px}.field-note{grid-template-columns:1fr;gap:24px}.site-footer{display:block;padding:26px 0}.site-footer p{margin-bottom:8px}.detail-layout{grid-template-columns:1fr;padding:24px;gap:24px}.detail-art{position:static}.detail-art figure{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center}.detail-art img{grid-row:1/3;width:110px}.detail-art figcaption{margin:0;align-self:end}.detail-art figure p{align-self:start}.detail-lore{margin-top:16px}.detail-main h2{font-size:30px}dialog{width:calc(100% - 24px);max-height:94dvh}}
+@media(max-width:480px){.card-grid{grid-template-columns:1fr;gap:22px;max-width:360px;margin-inline:auto}.card-art{padding:8px 12px 0}.card-copy{padding:0 23px 12px}.strategy-card h3{font-size:24px}.site-header nav a{padding:8px 9px}.hero h1{max-width:320px;margin:auto;font-size:36px}.hero-description{font-size:14px}.collection{padding-bottom:40px}.dialog-toolbar{padding:8px 18px}.dialog-toolbar>span{font-size:10px}.detail-layout{padding:20px}.brand img{width:32px;height:32px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.strategy-card:hover,.strategy-card:focus-within{transform:none}}
+.photo-credit{font-size:10px;color:var(--muted);padding-bottom:24px}.photo-credit a{display:inline-block;padding:12px 0;text-underline-offset:3px}
+
+/* A/B card study: the surrounding library remains identical. */
+.collection{padding-top:12px}
+.photo-info{position:absolute;right:24px;bottom:14px;z-index:4;text-align:left;font-size:11px;color:var(--muted)}
+.photo-info summary{width:28px;height:28px;display:grid;place-items:center;border:1px solid #dce2d5;border-radius:50%;cursor:pointer;background:#fbf9f2b3;font:italic 14px Georgia,serif;list-style:none}
+.photo-info summary::-webkit-details-marker{display:none}
+.photo-info summary:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.photo-info p{position:absolute;bottom:36px;right:0;width:260px;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:0 5px 20px #293a3012}
+.photo-info a{text-underline-offset:3px}
+.game-card{--gold:#c7a266;--paper-card:#f1e5cb;aspect-ratio:2/3;padding:12px 12px 5px;display:grid;grid-template-rows:76px minmax(0,1fr) 102px 20px;border:1px solid #695535;border-radius:4px;background:repeating-linear-gradient(132deg,transparent 0 29px,#e9e8dc08 30px,transparent 31px 57px),linear-gradient(135deg,#293335,#101d20 40%,#2b3333);box-shadow:0 3px 10px #14251b24;isolation:isolate}
+.game-card:before{content:'';position:absolute;inset:4px;border:2px solid #c5a263;box-shadow:inset 0 0 0 1px #4c371d,0 0 0 1px #443620;pointer-events:none;z-index:3}
+.game-card:hover,.game-card:focus-within{border-color:#c5a263;box-shadow:0 10px 28px #293a3024;transform:translateY(-4px)}
+.game-heading,.game-card .card-copy{background:radial-gradient(ellipse at 45% 35%,#fffae9cc,transparent 75%),repeating-linear-gradient(27deg,transparent 0 11px,#8b6a3010 12px,transparent 13px 28px),linear-gradient(120deg,#ddc293,#fff6dc 45%,#e6cea3);border:2px solid #b9955d;box-shadow:inset 0 0 0 2px #faf0d4,inset 0 0 20px #714d2730}
+.game-heading{position:relative;display:flex;align-items:center;justify-content:center;padding:10px 13px 16px;text-align:center;z-index:2;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px)}
+.game-card h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(19px,2.2vw,28px);font-weight:700;text-transform:uppercase;line-height:1.03;letter-spacing:-.7px;margin:0;color:#191d17;text-wrap:balance}
+.game-type{position:absolute;bottom:0;left:0;right:0;background:#203633;color:#ead9b7;font-size:9px;line-height:18px;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid #b9955d}
+.game-card .card-art{padding:0;aspect-ratio:auto;min-height:0;overflow:hidden;border-inline:1px solid #9e7941;background:#263b35}
+.game-card .card-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;mix-blend-mode:normal;mask-image:none}
+.game-card .card-copy{padding:10px 10px 2px;align-items:center;justify-content:center;position:relative;z-index:1}
+.game-item-name{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:19px;line-height:1.12;color:#272a20;text-align:center}
+.game-divider{display:flex;align-items:center;gap:8px;color:#997039;font-size:8px;line-height:12px;width:65%;margin-top:5px}
+.game-divider:before,.game-divider:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,#987038)}
+.game-divider:after{transform:rotate(180deg)}
+.game-card .card-bottom{margin:0;display:flex;justify-content:center}
+.game-card .view-card{font-size:12px;min-height:40px;color:#55482f;gap:14px}
+.game-card .view-card span{color:#8f6a33}
+.game-card .view-card:after{z-index:5}
+.game-edition{font-size:8px;letter-spacing:.2em;text-align:center;color:#e5d6b5;align-self:center;line-height:16px}
+.game-corner{position:absolute;z-index:4;width:22px;height:22px;background:linear-gradient(135deg,#d5b16b,#4e3519 28%,#e1c282 36%,#214540 39%,#132e2c 75%,#bd9558 78%);border:1px solid #c5a263;pointer-events:none}
+.game-corner.tl{top:3px;left:3px;clip-path:polygon(0 0,100% 0,0 100%)}
+.game-corner.tr{top:3px;right:3px;transform:rotate(90deg);clip-path:polygon(0 0,100% 0,0 100%)}
+.game-corner.br{bottom:3px;right:3px;transform:rotate(180deg);clip-path:polygon(0 0,100% 0,0 100%)}
+.game-corner.bl{bottom:3px;left:3px;transform:rotate(270deg);clip-path:polygon(0 0,100% 0,0 100%)}
+body[data-card-style=game] .detail-art img{aspect-ratio:4/5}
+@media(min-width:761px) and (max-width:1000px){body[data-card-style=game] .card-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:750px;margin-inline:auto}.game-card h3{font-size:25px}}
+@media(max-width:760px){.game-card{grid-template-rows:68px minmax(0,1fr) 94px 18px;padding:10px 10px 4px}.game-card h3{font-size:22px}.game-item-name{font-size:17px}.game-card .card-copy{padding:8px 8px 0}.game-edition{font-size:7px}.photo-info{right:12px;bottom:8px}}
+@media(min-width:481px) and (max-width:600px){body[data-card-style=game] .card-grid{grid-template-columns:1fr;max-width:350px;margin-inline:auto}}
+@media(max-width:480px){.game-card{grid-template-rows:72px minmax(0,1fr) 98px 20px}.game-card h3{font-size:25px}.game-card .card-copy{padding:8px 10px 0}.game-item-name{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.game-card:hover,.game-card:focus-within{transform:none}}
+
+/* September review: a quiet library palette and fully interactive game cards. */
+:root{--primary:#536c5d;--primary-pressed:#405448;--focus:#74877b}
+a:focus-visible,button:focus-visible,input:focus-visible{outline-color:var(--focus)}
+.site-header nav .active{color:var(--ink);background:#fffdf3e8;border:1px solid #dddccd;box-shadow:0 2px 8px #5559430a}
+.site-header nav .active:hover{background:#fffef9}
+.primary-button{background:#fffdf3ed;color:var(--ink);border-color:#d6d7c9;box-shadow:0 3px 12px #6268500a}
+.primary-button:hover{background:#fffef9;box-shadow:0 4px 15px #62685015}
+.primary-button span{color:#728072}
+.strategy-card{overflow:visible;min-width:0}
+.card-open{position:absolute;inset:0;z-index:10;width:100%;height:100%;padding:0;border:0;border-radius:inherit;background:transparent}
+.card-open:focus-visible{outline:3px solid var(--focus);outline-offset:5px}
+.view-card{margin-top:13px}
+.view-card:after{display:none}
+.field-note{margin-bottom:48px}
+.photo-info summary{width:48px;height:48px;border:0;background:transparent;position:relative}
+.photo-info summary:after{content:'';position:absolute;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;pointer-events:none}
+.photo-info p{bottom:48px}
+.photo-info summary:focus-visible{outline-color:var(--focus)}
+
+/* Text stays in normal flow. Neither the title nor the brief is height-clipped. */
+.game-card{aspect-ratio:auto;display:flex;flex-direction:column;padding:17px 17px 8px;border:0;border-radius:9px;background:#515d52;box-shadow:0 5px 15px #35433217}
+.game-card:before{display:none}
+.game-card:after{content:'';position:absolute;inset:0;background:url('assets/ornaments/game-frame.svg') center/100% 100% no-repeat;pointer-events:none;z-index:4}
+.game-card:hover,.game-card:focus-within{box-shadow:0 12px 24px #35433220;transform:translateY(-3px)}
+.game-heading{display:block;padding:0;background:none;border:0;box-shadow:none;clip-path:none;position:relative;flex:none}
+.game-titleplate{min-height:93px;padding:14px 23px 17px;display:grid;align-items:center;background:url('assets/ornaments/game-panel.svg') center/100% 100% no-repeat}
+.game-card h3{font-size:clamp(21px,2vw,26px);line-height:1.12;color:#303a30;margin:0;text-wrap:balance;overflow-wrap:normal}
+.game-type{position:relative;inset:auto;width:fit-content;max-width:90%;margin:-8px auto -9px;padding:3px 24px;color:#f4f0de;background:linear-gradient(120deg,#737e6b,#54675b 55%,#75806c);font-size:9px;line-height:20px;letter-spacing:.15em;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,12px 100%,0 50%);border-block:1px solid #b9ae8b}
+.game-card .card-art{aspect-ratio:1/1.04;flex:none;overflow:hidden;min-height:0;background:#d9ddcd;border-inline:1px solid #c4b99a}
+.game-card .card-art img{filter:saturate(.67) contrast(.91) brightness(1.08)}
+.game-card .card-art:after{content:'';position:absolute;inset:0;background:#f5efdd;opacity:.06;pointer-events:none}
+.game-card .card-copy{padding:12px 25px 20px;min-height:119px;align-items:center;justify-content:center;background:url('assets/ornaments/game-panel.svg') center/100% 100% no-repeat;border:0;box-shadow:none}
+.card-brief{font-size:14px;line-height:1.75;text-align:center;color:#495746;text-wrap:pretty}
+.game-divider{color:#a59774;font-size:7px;line-height:12px;width:72%;margin:0 0 7px}
+.game-divider:before,.game-divider:after{background:linear-gradient(90deg,transparent,#b2a382)}
+.game-edition{font-size:7px;letter-spacing:.22em;align-self:stretch;color:#eee8d3;line-height:23px;flex:none;padding-bottom:2px}
+
+/* A comfortable reading measure for the expanded field notes. */
+dialog{width:min(1100px,calc(100% - 48px));border-radius:14px}
+dialog::backdrop{background:#26352bcc}
+.dialog-toolbar{padding-inline:28px;z-index:5}
+.detail-layout{grid-template-columns:minmax(0,30%) minmax(0,1fr);gap:48px;padding:38px}
+.detail-art{position:static}
+body[data-card-style=game] .detail-art img{filter:saturate(.75) contrast(.95) brightness(1.04)}
+.detail-main h2{font-size:38px;margin-bottom:18px;overflow-wrap:break-word}
+.detail-summary{font-size:17px;line-height:1.8;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.markdown{margin-top:32px}
+.markdown h3{font-size:20px;line-height:1.5;margin:36px 0 14px}
+.markdown h3:first-child{margin-top:0}
+.markdown p,.markdown li{font-size:16px;line-height:1.95;color:#4e6050;overflow-wrap:break-word}
+.markdown p+p{margin-top:18px}
+.markdown ul{margin:16px 0 22px}
+.markdown li+li{margin-top:10px}
+.citation{font-size:12px;white-space:nowrap;color:#4e695d;text-underline-offset:3px;padding:2px}
+.sources{margin-top:36px;padding-top:28px}
+.sources h3{font-size:17px;margin-bottom:12px}
+.sources a{color:#4e695d}
+@media(max-width:1000px){.game-card h3{font-size:25px}.detail-layout{gap:32px;padding:30px;grid-template-columns:minmax(0,28%) minmax(0,1fr)}}
+@media(max-width:760px){
+  .game-card{padding:15px 15px 7px}.game-card h3{font-size:22px}.game-titleplate{padding-inline:20px}.game-card .card-copy{padding:12px 20px 20px}.game-edition{font-size:6px}
+  .detail-layout{grid-template-columns:1fr;padding:24px;gap:30px}.detail-art figure{grid-template-columns:100px 1fr;column-gap:18px;row-gap:5px}.detail-art img{width:100px}.detail-lore{margin-top:20px}.detail-main h2{font-size:32px}dialog{width:calc(100% - 24px);max-height:94dvh}
+}
+@media(max-width:600px){body[data-card-style=game] .card-grid{grid-template-columns:1fr;max-width:370px;margin-inline:auto}.game-card h3{font-size:25px}}
+@media(max-width:480px){.game-card h3{font-size:24px}.game-card .card-copy{padding-inline:22px}.dialog-toolbar{padding-inline:18px}.detail-layout{padding:20px}.markdown p,.markdown li{font-size:15px}}
+@media(max-width:350px){.game-card h3{font-size:21px}.game-titleplate{padding-inline:19px}.card-brief{font-size:13px}.site-header nav a{padding-inline:7px}}
+@media(prefers-reduced-motion:reduce){.game-card:hover,.game-card:focus-within{transform:none}}
